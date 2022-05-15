@@ -37,9 +37,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\SequrityAlgorithm.cs" />
-    <Compile Include="Concrete\PlayFair.cs" />
+    <Compile Include="PlayFair\Concrete\PlayFairEng.cs" />
     <Compile Include="Entities\Enumerations.cs" />
+    <Compile Include="PlayFair\Concrete\PlayFairRus.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

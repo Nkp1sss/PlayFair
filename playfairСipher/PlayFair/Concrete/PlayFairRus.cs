@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace playfairСipher
 {
-    public class PlayFair : SecurityAlgorithm
+    public class PlayFairRus : SecurityAlgorithm
     {
+        protected readonly Dictionary<char, int> alphabet;
         string key;
 
-        public PlayFair(string key)
+        public PlayFairRus(string key)
         {
+            alphabet = new Dictionary<char, int>();
+            char c = 'а';
+            alphabet.Add(c, 0);
+
+            for (int i = 1; i < 33; i++)
+            {
+                alphabet.Add(++c, i);
+            }
+
             this.key = key;
         }
 
@@ -124,46 +134,77 @@ namespace playfairСipher
 
                 if (i < trimmed.Length - 1 && message[i] == message[i + 1]) //check if two consecutive letters are the same
                 {
-                    result += 'x';
+                    result += 'я';
                 }
             }
 
             if (result.Length % 2 != 0)//check if length is even
             {
-                result += 'x';
+                result += 'я';
             }
 
-            return result;
+            return result.ToLower();
         }
 
         private void FillMatrix(IList<char> key, Dictionary<char, string> characterPositionsInMatrix, Dictionary<string, char> positionCharacterInMatrix)
         {
-            char[,] matrix = new char[5, 5];
+            char[,] matrix = new char[6, 6];
             int keyPosition = 0, charPosition = 0;
             List<char> alphabetPF = alphabet.Keys.ToList();
-            alphabetPF.Remove('j');
+            alphabetPF.Remove('ё');
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 6; j++)
                 {
-                    if (charPosition < key.Count)
+                    if (6 * i + j < 33)
                     {
-                        matrix[i, j] = key[charPosition];//fill matrix with key
-                        alphabetPF.Remove(key[charPosition]);
-                        charPosition++;
-                    }
+                        if (charPosition < key.Count)
+                        {
+                            matrix[i, j] = key[charPosition];//fill matrix with key
+                            alphabetPF.Remove(key[charPosition]);
+                            charPosition++;
+                        }
 
-                    else//key finished...fill with rest of alphabet
+                        else//key finished...fill with rest of alphabet
+                        {
+                            matrix[i, j] = alphabetPF[keyPosition];
+                            keyPosition++;
+                        }
+
+                        string position = i.ToString() + j.ToString();
+                        //store character positions in dictionary to avoid searching everytime
+                        characterPositionsInMatrix.Add(matrix[i, j], position);
+                        positionCharacterInMatrix.Add(position, matrix[i, j]);
+
+                    }
+                    else
                     {
-                        matrix[i, j] = alphabetPF[keyPosition];
-                        keyPosition++;
-                    }
+                        matrix[5, 2] = ',';
+                        matrix[5, 3] = '.';
+                        matrix[5, 4] = '!';
+                        matrix[5, 5] = '?';
+                        characterPositionsInMatrix.Remove((char)1104);
+                        positionCharacterInMatrix.Remove("52");
 
-                    string position = i.ToString() + j.ToString();
-                    //store character positions in dictionary to avoid searching everytime
-                    characterPositionsInMatrix.Add(matrix[i, j], position);
-                    positionCharacterInMatrix.Add(position, matrix[i, j]);
+                        characterPositionsInMatrix.Add(matrix[5, 2], 52 + "");
+                        positionCharacterInMatrix.Add(52 + "", matrix[5, 2]);
+
+                        characterPositionsInMatrix.Add(matrix[5, 3], 53 + "");
+                        positionCharacterInMatrix.Add(53 + "", matrix[5, 3]);
+
+                        characterPositionsInMatrix.Add(matrix[5, 4], 54 + "");
+                        positionCharacterInMatrix.Add(54 + "", matrix[5, 4]);
+
+                        characterPositionsInMatrix.Add(matrix[5, 5], 55 + "");
+                        positionCharacterInMatrix.Add(55 + "", matrix[5, 5]);
+
+                    }
+                    
+                    if (6 * i + j > 32)
+                    {
+                        j += 3;
+                    }
                 }
             }
         }

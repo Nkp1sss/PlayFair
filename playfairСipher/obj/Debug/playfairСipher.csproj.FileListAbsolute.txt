@@ -1,8 +1,8 @@
 C:\Users\Admin\Desktop\playfairСipher\playfairСipher\bin\Debug\playfairСipher.exe.config
 C:\Users\Admin\Desktop\playfairСipher\playfairСipher\bin\Debug\playfairСipher.exe
 C:\Users\Admin\Desktop\playfairСipher\playfairСipher\bin\Debug\playfairСipher.pdb
-C:\Users\Admin\Desktop\playfairСipher\playfairСipher\obj\Debug\playfairСipher.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\playfairСipher\playfairСipher\obj\Debug\playfairСipher.csproj.SuggestedBindingRedirects.cache
 C:\Users\Admin\Desktop\playfairСipher\playfairСipher\obj\Debug\playfairСipher.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\playfairСipher\playfairСipher\obj\Debug\playfairСipher.exe
 C:\Users\Admin\Desktop\playfairСipher\playfairСipher\obj\Debug\playfairСipher.pdb
+C:\Users\Admin\Desktop\playfairСipher\playfairСipher\obj\Debug\playfairСipher.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\playfairСipher\playfairСipher\obj\Debug\playfairСipher.csproj.SuggestedBindingRedirects.cache

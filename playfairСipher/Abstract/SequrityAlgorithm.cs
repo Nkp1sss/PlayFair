@@ -8,18 +8,18 @@ namespace playfairСipher
 {
     public abstract class SecurityAlgorithm
     {
-        protected readonly Dictionary<char, int> alphabet;
+        //protected readonly Dictionary<char, int> alphabet;
 
         public SecurityAlgorithm()
         {
-            alphabet = new Dictionary<char, int>();
+            /*alphabet = new dictionary<char, int>();
             char c = 'a';
-            alphabet.Add(c, 0);
+            alphabet.add(c, 0);
 
             for (int i = 1; i < 26; i++)
             {
-                alphabet.Add(++c, i);
-            }
+                alphabet.add(++c, i);
+            }*/
         }
 
         public abstract string Encrypt(string plainText); // шифрование

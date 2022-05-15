@@ -20,14 +20,15 @@ namespace test
 
         public Test()
         {
-            _target = new PlayFair("playfairexample");
+            _target = new PlayFairEng("mykeylong");
+            //_target = new PlayFairRus("этомойключ");
         }
 
         public void PlayFair_EncryptTest()
         {
             //Arrange
-            string plain = "mynameisnikita"; 
-            //string cypher = "bmodzbxdnabekudmuixmmouvif";
+            string plain = "zxcvbnmasdfghklqwertyuiop"; 
+            //string plain = "привет меня зовут никита мне девятнадцать лета"; 
 
             //Act
             string actual = _target.Encrypt(plain);
@@ -37,8 +38,8 @@ namespace test
         public void PlayFair_DecryptTest()
         {
             //Arrange
-            //string plain = "hidethegoldinthetrexestump";
-            string cypher = "xfolixmkkrtbvp";
+            //string cypher = "рсфидоожпьейбфэпфвдкжаргежю?эпюжщюэячгмю";
+            string cypher = "uzduogeoqhrffeytxkspmvcbsu";
 
             //Act
             string actual = _target.Decrypt(cypher);
