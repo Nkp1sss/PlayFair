@@ -1,4 +1,4 @@
 # PlayFair 
 ## update version
 
-## Implementation of the playfair cipher
+## Implementation of the playfair cipher.
